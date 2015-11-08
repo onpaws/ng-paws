@@ -1,8 +1,8 @@
 <!doctype html>
-<html>
+<html ng-app="ngPawsApp" ng-controller="MainCtrl as main">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title ng-bind-template="Phones: {{main.query}}"></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -13,9 +13,10 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/animations.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="ngPawsApp">
+  <body>
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -39,9 +40,9 @@
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#/">Home</a></li>
+              <li><a href="#/">Home</a></li>
               <li><a ng-href="#/about">About</a></li>
-              <li><a ng-href="#/">Contact</a></li>
+              <li><a ng-href="#/phones">Phones</a></li>
             </ul>
           </div>
         </div>
@@ -49,12 +50,14 @@
     </div>
 
     <div class="container">
-    <div ng-view=""></div>
+      <div class="view-container">
+        <div ng-view class="view-frame"></div>
+      </div>
     </div>
 
     <div class="footer">
       <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+        <p>With <span class="glyphicon glyphicon-heart"></span> from Patrick</p>
       </div>
     </div>
 
@@ -109,6 +112,8 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/filters/filters.js"></script>
+        <script src="scripts/services/services.js"></script>
         <!-- endbuild -->
 </body>
 </html>

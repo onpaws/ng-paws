@@ -15,7 +15,9 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'phonecatFilters',
+    'phonecatServices'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -28,6 +30,16 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
+      })
+      .when('/phones', {
+       templateUrl: 'views/phone-list.html',
+       controller: 'PhoneListCtrl',
+       controllerAs: 'phonelist'
+     })
+     .when('/phones/:phoneId', {
+        templateUrl: 'views/phone-detail.html',
+        controller: 'PhoneDetailCtrl',
+        controllerAs: 'phonedetail'
       })
       .otherwise({
         redirectTo: '/'
